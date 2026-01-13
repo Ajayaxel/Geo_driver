@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:logistics/screen/notifecation/notifecation_screen.dart';
 import 'package:logistics/widgets/shipment_card.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -14,7 +15,7 @@ class HomeScreen extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               // Header
-                 SizedBox(height: 18,),
+              SizedBox(height: 18),
               const HederWidget(),
               const SizedBox(height: 10),
 
@@ -183,14 +184,23 @@ class HederWidget extends StatelessWidget {
             ),
           ],
         ),
-        Container(
-          padding: const EdgeInsets.all(10),
-          decoration: BoxDecoration(
-            color: Colors.white,
-            shape: BoxShape.circle,
-            border: Border.all(color: const Color(0xffEEEEEE)),
+        GestureDetector(
+          onTap: () {
+            Navigator.of(context).push(
+              MaterialPageRoute(
+                builder: (context) => const NotificationScreen(),
+              ),
+            );
+          },
+          child: Container(
+            padding: const EdgeInsets.all(10),
+            decoration: BoxDecoration(
+              color: Colors.white,
+              shape: BoxShape.circle,
+              border: Border.all(color: const Color(0xffEEEEEE)),
+            ),
+            child: const Icon(Icons.notifications_none, color: Colors.black),
           ),
-          child: const Icon(Icons.notifications_none, color: Colors.black),
         ),
       ],
     );
